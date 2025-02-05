@@ -1,0 +1,155 @@
+{
+  "name": "stm32F4xx",
+  "type": "ARM",
+  "dependenceList": [],
+  "srcDirs": [
+    "Libraries",
+    "Project",
+    "User"
+  ],
+  "virtualFolder": {
+    "name": "<virtual_root>",
+    "files": [],
+    "folders": []
+  },
+  "outDir": "build",
+  "deviceName": null,
+  "packDir": null,
+  "miscInfo": {
+    "uid": "b1a5adce5723ccf8f7ee88889dc2aedc"
+  },
+  "targets": {
+    "Debug": {
+      "excludeList": [
+        "Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_fmc.c",
+        "Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_dma2d.c",
+        "Libraries/STM32F4xx_StdPeriph_Driver/src/stm32f4xx_ltdc.c",
+        "Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f401xx.s",
+        "Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f40_41xxx.s",
+        "Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f410xx.s",
+        "Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f411xe.s",
+        "Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f412xg.s",
+        "Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f413_423xx.s",
+        "Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f427x.s",
+        "Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f427_437xx.s",
+        "Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f429_439xx.s",
+        "Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f446xx.s",
+        "Libraries/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f469_479xx.s"
+      ],
+      "toolchain": "AC5",
+      "compileConfig": {
+        "cpuType": "Cortex-M4",
+        "floatingPointHardware": "single",
+        "useCustomScatterFile": false,
+        "scatterFilePath": "<YOUR_SCATTER_FILE>.sct",
+        "storageLayout": {
+          "RAM": [
+            {
+              "tag": "IRAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x20000000",
+                "size": "0x20000"
+              },
+              "isChecked": true,
+              "noInit": false
+            }
+          ],
+          "ROM": [
+            {
+              "tag": "IROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x08000000",
+                "size": "0x10000"
+              },
+              "isChecked": true,
+              "isStartup": true
+            }
+          ]
+        },
+        "options": "null"
+      },
+      "uploader": "JLink",
+      "uploadConfig": {
+        "bin": "",
+        "baseAddr": "",
+        "cpuInfo": {
+          "vendor": "null",
+          "cpuName": "null"
+        },
+        "proType": 1,
+        "speed": 8000,
+        "otherCmds": ""
+      },
+      "uploadConfigMap": {},
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          "Libraries/STM32F4xx_StdPeriph_Driver/inc",
+          "Libraries/CMSIS/Include",
+          "Libraries/CMSIS/Device/ST/STM32F4xx/Include",
+          "User",
+          "User/BSP/inc"
+        ],
+        "libList": [],
+        "defineList": [
+          "STM32F40_41xxx",
+          "USE_STDPERIPH_DRIVER"
+        ]
+      },
+      "builderOptions": {
+        "GCC": {
+          "version": 5,
+          "beforeBuildTasks": [],
+          "afterBuildTasks": [],
+          "global": {
+            "$float-abi-type": "softfp",
+            "output-debug-info": "enable",
+            "misc-control": "--specs=nosys.specs --specs=nano.specs"
+          },
+          "c/cpp-compiler": {
+            "language-c": "c11",
+            "language-cpp": "c++11",
+            "optimization": "level-debug",
+            "warnings": "all-warnings",
+            "one-elf-section-per-function": true,
+            "one-elf-section-per-data": true,
+            "C_FLAGS": "",
+            "CXX_FLAGS": ""
+          },
+          "asm-compiler": {
+            "ASM_FLAGS": ""
+          },
+          "linker": {
+            "output-format": "elf",
+            "remove-unused-input-sections": true,
+            "LD_FLAGS": "",
+            "LIB_FLAGS": "-lm"
+          }
+        },
+        "AC5": {
+          "version": 4,
+          "beforeBuildTasks": [],
+          "afterBuildTasks": [],
+          "global": {
+            "output-debug-info": "enable"
+          },
+          "c/cpp-compiler": {
+            "optimization": "level-0",
+            "one-elf-section-per-function": true,
+            "c99-mode": true,
+            "C_FLAGS": "--diag_suppress=1 --diag_suppress=1295",
+            "CXX_FLAGS": "--diag_suppress=1 --diag_suppress=1295",
+            "warnings": "unspecified"
+          },
+          "asm-compiler": {},
+          "linker": {
+            "output-format": "elf"
+          }
+        }
+      }
+    }
+  },
+  "version": "3.5"
+}
