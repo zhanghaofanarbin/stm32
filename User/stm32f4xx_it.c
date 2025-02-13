@@ -29,6 +29,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_it.h"
+#include "bsp_usart.h"
 
 /** @addtogroup STM32F429I_DISCOVERY_Examples
   * @{
@@ -152,5 +153,13 @@ void SysTick_Handler(void)
 /**
   * @}
   */ 
-
+ void DEBUG_USART_IRQHandler(void)
+{
+  uint8_t ucTemp;
+	if(USART_GetITStatus(DEBUG_USART, USART_IT_RXNE) != RESET)
+	{		
+		ucTemp = USART_ReceiveData( DEBUG_USART );
+    USART_SendData(DEBUG_USART,ucTemp);    
+	}	 
+}	
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

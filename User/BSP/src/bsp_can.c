@@ -4,7 +4,7 @@ static void CAN_GPIO_Config(void)
 {
     GPIO_InitTypeDef GPIO_InitStructure;
 
-    RCC_AHB1PeriphClockCmd(CAN_TX_GPIO_CLK| CAN_RX_GPIO_CLK);
+    RCC_AHB1PeriphClockCmd(CAN_TX_GPIO_CLK| CAN_RX_GPIO_CLK, ENABLE);
 
     GPIO_PinAFConfig(CAN_TX_GPIO_PORT, CAN_TX_SOURCE,CAN_AF_PORT);
     GPIO_PinAFConfig(CAN_RX_GPIO_PORT, CAN_RX_SOURCE,CAN_AF_PORT);
@@ -60,7 +60,7 @@ static void CAN_Mode_Config(void)
 
 
     CAN_InitStructure.CAN_Prescaler = 6;
-    CAN_INit(CANx, &CAN_InitStructure);
+    CAN_Init(CANx, &CAN_InitStructure);
 }
 
 
@@ -88,7 +88,7 @@ static void CAN_Filter_Config(void)
 void CAN_Config(void)
 {
     CAN_GPIO_Config();
-    CAN_NVIV_Config();
+    CAN_NVIC_Config();
     CAN_Mode_Config();
     CAN_Filter_Config();
 }

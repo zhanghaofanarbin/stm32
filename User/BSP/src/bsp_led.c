@@ -13,7 +13,11 @@ void LED_GPIO_Config(void)
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 
     GPIO_Init(LED_RED_GPIO_PORT , &GPIO_InitStructure);
-    GPIO_Init(LED_BLUE_GPIO_PORT, &GPIO_InitStructure);
-    GPIO_Init(LED_GREEN_GPIO_PORT, &GPIO_InitStructure);
 
+    GPIO_InitStructure.GPIO_Pin = LED_BLUE_GPIO_PIN;
+    GPIO_Init(LED_BLUE_GPIO_PORT, &GPIO_InitStructure);
+
+    GPIO_InitStructure.GPIO_Pin = LED_GREEN_GPIO_PIN;
+    GPIO_Init(LED_GREEN_GPIO_PORT, &GPIO_InitStructure);
+    LED_RGBOFF;
 }
